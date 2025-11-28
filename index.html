@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeWorks - Modern Website Solutions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray background */
+            overflow-x: hidden;
+        }
+        
+        /* Keyframe for subtle fade-in and scale-up */
+        @keyframes fadeInUpScale {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Utility class for elements that will be animated on load */
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUpScale 0.6s ease-out forwards;
+        }
+
+        /* Card hover effect */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* Mock code block styling */
+        .mock-code {
+            background-color: #1e293b; /* Slate-800 */
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        .code-tag { color: #818cf8; } /* Indigo-400 */
+        .code-attr { color: #facc15; } /* Yellow-400 */
+        .code-val { color: #10b981; } /* Emerald-500 */
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-extrabold text-indigo-600 tracking-wider animate-on-load" style="animation-delay: 0.1s;">
+                    CreativeWorks
+                </a>
+                <!-- Desktop Menu -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#services" class="text-gray-900 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Services</a>
+                    <a href="#process" class="text-gray-900 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Process</a>
+                    <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition duration-150 ease-in-out shadow-md">Get a Quote</a>
+                </div>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <div class="sm:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="sm:hidden" id="mobile-menu" style="display: none;">
+            <div class="pt-2 pb-3 space-y-1 px-4">
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Services</a>
+                <a href="#process" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Process</a>
+                <a href="#contact" class="block w-full text-center bg-indigo-600 text-white px-3 py-2 mt-2 rounded-lg text-base font-semibold hover:bg-indigo-700">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Updated with Two Columns) -->
+    <header class="bg-white pt-16 pb-12 lg:pt-24 lg:pb-16 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12">
+            
+            <!-- Left Column: Text and CTAs -->
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6 animate-on-load" style="animation-delay: 0.2s;">
+                    The <span class="text-indigo-600">Future</span> of Digital Presence.
+                </h1>
+                <p class="text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-10 animate-on-load" style="animation-delay: 0.3s;">
+                    We design and develop clean, blazing-fast, and responsive digital experiences that drive real business results.
+                </p>
+                <div class="flex justify-center lg:justify-start space-x-4 animate-on-load" style="animation-delay: 0.4s;">
+                    <a href="#contact" class="px-8 py-3 text-lg font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+                        Start Your Project
+                    </a>
+                    <a href="#services" class="px-8 py-3 text-lg font-semibold rounded-xl text-indigo-600 bg-white border-2 border-indigo-600 hover:bg-indigo-50 transition duration-300 ease-in-out transform hover:scale-105">
+                        Explore Our Services
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Mock Code Visual -->
+            <div class="lg:w-1/2 w-full max-w-md animate-on-load" style="animation-delay: 0.5s;">
+                <div class="mock-code p-6 rounded-2xl shadow-2xl transition duration-500 ease-in-out transform hover:shadow-indigo-500/50 hover:scale-[1.01]">
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <code class="text-sm">
+                        <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-val">"responsive-app"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;header</span> <span class="code-attr">data-animation</span>=<span class="code-val">"fade-in"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;h1&gt;</span>Welcome to CreativeWorks<span class="code-tag">&lt;/h1&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;/header&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;section</span> <span class="code-attr">id</span>=<span class="code-val">"services"</span><span class="code-tag">&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-tag">&lt;p&gt;</span>Development, Design, Optimization...<span class="code-tag">&lt;/p&gt;</span><br>
+                        &nbsp;&nbsp;<span class="code-tag">&lt;/section&gt;</span><br>
+                        <span class="code-tag">&lt;/div&gt;</span>
+                    </code>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Metrics Section (New Section) -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Metric 1 -->
+                <div class="animate-on-scroll" data-delay="0.1">
+                    <p class="text-5xl font-extrabold text-indigo-600">12+</p>
+                    <p class="text-lg text-gray-500 mt-1">Years Experience</p>
+                </div>
+                <!-- Metric 2 -->
+                <div class="animate-on-scroll" data-delay="0.2">
+                    <p class="text-5xl font-extrabold text-indigo-600">300+</p>
+                    <p class="text-lg text-gray-500 mt-1">Projects Launched</p>
+                </div>
+                <!-- Metric 3 -->
+                <div class="animate-on-scroll" data-delay="0.3">
+                    <p class="text-5xl font-extrabold text-indigo-600">98%</p>
+                    <p class="text-lg text-gray-500 mt-1">Client Satisfaction</p>
+                </div>
+                <!-- Metric 4 -->
+                <div class="animate-on-scroll" data-delay="0.4">
+                    <p class="text-5xl font-extrabold text-indigo-600">24/7</p>
+                    <p class="text-lg text-gray-500 mt-1">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 uppercase tracking-widest text-sm font-bold animate-on-scroll">What We Offer</span>
+                <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4 animate-on-scroll">Our Core Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-on-scroll">From concept to deployment, we cover everything you need to succeed online.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-on-scroll" data-delay="0.1">
+                    <svg class="w-10 h-10 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1v-3.25m-7-6.5l-2.5 2.5m10 0l2.5 2.5m-5 0l-5 5m-2.5-2.5l2.5-2.5M12 10a4 4 0 100-8 4 4 0 000 8z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Web Development</h3>
+                    <p class="text-gray-600">Hand-coded, optimized websites built from the ground up for performance and scalability using modern frameworks.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-on-scroll" data-delay="0.2">
+                    <svg class="w-10 h-10 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Responsive Design</h3>
+                    <p class="text-gray-600">Flawless functionality and stunning visuals across all devices, ensuring a perfect experience on mobile, tablet, and desktop.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 animate-on-scroll" data-delay="0.3">
+                    <svg class="w-10 h-10 text-indigo-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">SEO & Optimization</h3>
+                    <p class="text-gray-600">Structured optimization for search engines, fast loading times, and accessibility standards built into every line of code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-indigo-600 uppercase tracking-widest text-sm font-bold animate-on-scroll">How We Work</span>
+                <h2 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4 animate-on-scroll">A Simple, Transparent Process</h2>
+            </div>
+            
+            <!-- Timeline/Steps -->
+            <div class="space-y-12 relative">
+                <!-- Decorative vertical line -->
+                <div class="absolute hidden md:block w-0.5 bg-indigo-200 left-1/2 transform -translate-x-1/2 top-0 bottom-0"></div>
+
+                <!-- Step 1: Discovery -->
+                <div class="md:flex md:items-start animate-on-scroll" data-delay="0.1">
+                    <div class="md:w-1/2 md:pr-10 text-right">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">1. Discovery & Strategy</h3>
+                        <p class="text-gray-600">We start with a deep dive into your business goals, audience, and competition to define a clear roadmap.</p>
+                    </div>
+                    <div class="hidden md:block w-10 h-10 bg-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold transform -translate-x-1/2 shadow-xl">1</div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Step 2: Design -->
+                <div class="md:flex md:items-start flex-row-reverse animate-on-scroll" data-delay="0.2">
+                    <div class="md:w-1/2 md:pl-10 text-left">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">2. Design & Prototype</h3>
+                        <p class="text-gray-600">Creating sleek wireframes and high-fidelity mockups for your approval, focusing on user experience (UX) and visuals.</p>
+                    </div>
+                    <div class="hidden md:block w-10 h-10 bg-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold transform translate-x-1/2 shadow-xl">2</div>
+                    <div class="md:w-1/2"></div>
+                </div>
+
+                <!-- Step 3: Development -->
+                <div class="md:flex md:items-start animate-on-scroll" data-delay="0.3">
+                    <div class="md:w-1/2 md:pr-10 text-right">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">3. Clean Development</h3>
+                        <p class="text-gray-600">Writing clean, commented, and efficient code. We prioritize speed and maintainability throughout the build phase.</p>
+                    </div>
+                    <div class="hidden md:block w-10 h-10 bg-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold transform -translate-x-1/2 shadow-xl">3</div>
+                    <div class="md:w-1/2"></div>
+                </div>
+                
+                <!-- Step 4: Launch & Support -->
+                <div class="md:flex md:items-start flex-row-reverse animate-on-scroll" data-delay="0.4">
+                    <div class="md:w-1/2 md:pl-10 text-left">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">4. Launch & Support</h3>
+                        <p class="text-gray-600">A seamless deployment process followed by ongoing maintenance, monitoring, and optimization support.</p>
+                    </div>
+                    <div class="hidden md:block w-10 h-10 bg-indigo-600 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold transform translate-x-1/2 shadow-xl">4</div>
+                    <div class="md:w-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-indigo-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 animate-on-scroll">Ready to Build Something Great?</h2>
+            <p class="text-xl text-indigo-200 max-w-3xl mx-auto mb-10 animate-on-scroll">
+                Tell us about your project, and let's turn your vision into a digital reality.
+            </p>
+            <form id="contact-form" class="max-w-lg mx-auto space-y-6 animate-on-scroll" data-delay="0.1">
+                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-lg border border-indigo-400 focus:ring-indigo-300 focus:border-indigo-300 text-gray-800" required>
+                <input type="email" placeholder="Your Email Address" class="w-full p-4 rounded-lg border border-indigo-400 focus:ring-indigo-300 focus:border-indigo-300 text-gray-800" required>
+                <textarea placeholder="Tell us about your project needs..." rows="4" class="w-full p-4 rounded-lg border border-indigo-400 focus:ring-indigo-300 focus:border-indigo-300 text-gray-800" required></textarea>
+                <button type="submit" class="w-full px-8 py-4 text-xl font-bold rounded-xl text-indigo-600 bg-white hover:bg-gray-100 transition duration-300 ease-in-out shadow-2xl transform hover:scale-[1.02]">
+                    Send My Inquiry
+                </button>
+                <div id="status-message" class="mt-4 text-white text-lg font-semibold" style="display: none;"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+            <p>&copy; 2025 CreativeWorks. All rights reserved. | Modern Web Development</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+                <span class="text-gray-500">|</span>
+                <a href="#" class="hover:text-white transition duration-200">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle Script ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.style.display = isExpanded ? 'none' : 'block';
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+
+        // --- Contact Form Submission Handling (Mock) ---
+        const contactForm = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading or processing message
+            statusMessage.textContent = 'Sending message...';
+            statusMessage.style.display = 'block';
+
+            // Simulate API call delay
+            setTimeout(() => {
+                // In a real application, you would send data to a backend here.
+                console.log('Form submission simulated.');
+                
+                // Clear the form and show success message
+                contactForm.reset();
+                statusMessage.textContent = 'Thank you! Your inquiry has been sent and we will be in touch soon.';
+                statusMessage.classList.add('text-green-300'); // Optional styling change
+            }, 1500);
+        });
+        
+        // --- Scroll-Based Animation Script ---
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the element must be visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    // Get delay from data attribute (if available)
+                    const delay = element.dataset.delay ? parseFloat(element.dataset.delay) : 0;
+                    
+                    // Apply animation styles with delay
+                    element.style.animationName = 'fadeInUpScale';
+                    element.style.animationDuration = '0.6s';
+                    element.style.animationTimingFunction = 'ease-out';
+                    element.style.animationFillMode = 'forwards';
+                    element.style.animationDelay = `${delay}s`;
+                    element.style.opacity = 0; // Ensure it starts invisible before animation
+
+                    // Stop observing once animated
+                    observer.unobserve(element);
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements we want to animate on scroll
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            // Apply initial state for observation
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Trigger animations for the Hero elements immediately since they are visible on load
+        document.querySelectorAll('.animate-on-load').forEach(el => {
+            // The CSS keyframes and class already handle the fade-in on page load.
+        });
+
+    </script>
+</body>
+</html>
